@@ -3,3 +3,23 @@
 @import "tailwindcss/utilities.css";
  
 @import "nativewind/theme";
+
+/* Tailwind v4 emits logical properties (padding-inline/padding-block) for the
+   axis shorthands, which React Native does not support. Re-emit them as
+   physical properties so px/py/mx/my work on native. */
+@utility px-* {
+  padding-left: --spacing(--value(integer));
+  padding-right: --spacing(--value(integer));
+}
+@utility py-* {
+  padding-top: --spacing(--value(integer));
+  padding-bottom: --spacing(--value(integer));
+}
+@utility mx-* {
+  margin-left: --spacing(--value(integer));
+  margin-right: --spacing(--value(integer));
+}
+@utility my-* {
+  margin-top: --spacing(--value(integer));
+  margin-bottom: --spacing(--value(integer));
+}

@@ -31,7 +31,7 @@ const TabsLayout = () => {
           <FontAwesome6 name='bag-shopping' size={size} color={color} />
         )
       }} />
-      <Tabs.Screen name="account" options={{
+      <Tabs.Screen name="user" options={{
         title: 'Account', tabBarIcon: ({ size, color }) => (
           <FontAwesome name='user' size={size} color={color} />
         )
