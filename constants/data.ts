@@ -1,33 +1,103 @@
-import { product_watch } from '@/assets/images';
+const image = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
+
 export const PRODUCTS = [
   {
     id: '1',
-    product_name: 'Watch',
-    product_currency: 40,
-    product_image: product_watch
+    product_name: 'Rolex Cellini',
+    product_brand: 'Rolex',
+    product_currency: 8999.99,
+    product_image: { uri: image(5827771) },
   },
   {
     id: '2',
-    product_name: 'Watch',
-    product_currency: 40,
-    product_image: product_watch
+    product_name: 'Longines',
+    product_brand: 'Longines',
+    product_currency: 1499.99,
+    product_image: { uri: image(15715981) },
   },
   {
     id: '3',
     product_name: 'Watch',
-    product_currency: 40,
-    product_image: product_watch
+    product_brand: 'Fashion Timepieces',
+    product_currency: 89.99,
+    product_image: { uri: image(5157289) },
   },
   {
     id: '4',
-    product_name: 'Watch',
-    product_currency: 40,
-    product_image: product_watch
+    product_name: 'iPhone 13 Pro',
+    product_brand: 'Apple',
+    product_currency: 1099.99,
+    product_image: { uri: image(25839639) },
   },
   {
     id: '5',
-    product_name: 'Watch',
-    product_currency: 40,
-    product_image: product_watch
+    product_name: 'iPhone 6',
+    product_brand: 'Apple',
+    product_currency: 299.99,
+    product_image: { uri: image(788946) },
   },
-]
+  {
+    id: '6',
+    product_name: 'AirPods Max',
+    product_brand: 'Apple',
+    product_currency: 549.99,
+    product_image: { uri: image(7054538) },
+  },
+  {
+    id: '7',
+    product_name: 'Apple Airpods',
+    product_brand: 'Apple',
+    product_currency: 129.99,
+    product_image: { uri: image(3921837) },
+  },
+  {
+    id: '8',
+    product_name: 'Amazon Echo Plus',
+    product_brand: 'Amazon',
+    product_currency: 99.99,
+    product_image: { uri: image(191877) },
+  },
+  {
+    id: '9',
+    product_name: 'Air Jordan 1',
+    product_brand: 'Nike',
+    product_currency: 149.99,
+    product_image: { uri: image(6540993) },
+  },
+  {
+    id: '10',
+    product_name: 'Future Rider',
+    product_brand: 'Puma',
+    product_currency: 89.99,
+    product_image: { uri: image(2529157) },
+  },
+  {
+    id: '11',
+    product_name: 'Sony WH',
+    product_brand: 'Sony',
+    product_currency: 278.0,
+    product_image: { uri: image(844923) },
+  },
+  {
+    id: '12',
+    product_name: 'Man Plaid Shirt',
+    product_brand: 'Classic Wear',
+    product_currency: 34.99,
+    product_image: { uri: image(897817) },
+  },
+  {
+    id: '13',
+    product_name: 'Check Shirt',
+    product_brand: 'Fashion Trends',
+    product_currency: 29.99,
+    product_image: { uri: image(5921195) },
+  },
+  {
+    id: '14',
+    product_name: 'Aorus Tshirt',
+    product_brand: 'Gigabyte',
+    product_currency: 24.99,
+    product_image: { uri: image(34156905) },
+  },
+];

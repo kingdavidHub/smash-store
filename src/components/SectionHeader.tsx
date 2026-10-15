@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { View, Text } from "react-native";
 
 type SectionHeaderProps = {
@@ -8,7 +9,9 @@ const SectionHeader = ({ name }: SectionHeaderProps) => {
   return (
     <View className="flex-row items-center justify-between mb-5">
       <Text className="text-xl font-semibold">{name}</Text>
-      <Text className="text-[#6055D8]">See all</Text>
+      <Link href={"/products"}>
+        <Text className="text-[#6055D8]">See all</Text>
+      </Link>
     </View>
   );
 };

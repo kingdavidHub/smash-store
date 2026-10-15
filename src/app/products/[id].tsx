@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import { styled } from 'nativewind'
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context'
@@ -7,17 +7,34 @@ import { formatCurrency } from '../../../lib/utils'
 import { FontAwesome, FontAwesome6 } from '@expo/vector-icons'
 import Button from '@/components/Button'
 import IconButton from '@/components/IconButton'
+import SkeletonImage from '@/components/SkeletonImage'
+import { useCartStore } from '@/store/cart'
 
 const SafeAreaView = styled(RNSafeAreaView)
 
 const Productdetails = () => {
   const { id } = useLocalSearchParams();
   const router = useRouter()
+  const addItem = useCartStore((state) => state.addItem)
 
   
   const item = PRODUCTS.find((i) => i.id === id);
 
   if (!item) return <Text>Not Found</Text>
+
+  const handleAddToCart = () =>
+    addItem({
+      id: item.id,
+      name: item.product_name,
+      brand: item.product_brand,
+      price: item.product_currency,
+      image: item.product_image,
+    })
+
+  const handleBuyNow = () => {
+    handleAddToCart()
+    router.push('/(tabs)/cart')
+  }
 
   return (
     <SafeAreaView
@@ -26,7 +43,7 @@ const Productdetails = () => {
     >
       <View className='flex-col'>
         <View className='max-h-120 w-full overflow-hidden rounded-l-3xl rounded-r-3xl relative'>
-          <Image source={item.product_image} className='w-full h-full' resizeMode='cover' />
+          <SkeletonImage source={item.product_image} className='w-full h-full' />
 
           <View className='absolute top-20 w-full'>
             <View className='px-4 flex-row justify-between'>
@@ -84,9 +101,12 @@ const Productdetails = () => {
             </View>
 
             <View className='flex-row gap-4 justify-between'>
-              <Button name="Buy Now" />
+              <Button name="Buy Now" onPress={handleBuyNow} />
 
-              <TouchableOpacity className='px-7 py-3 bg-gray-200 rounded-full'>
+              <TouchableOpacity
+                onPress={handleAddToCart}
+                className='px-7 py-3 bg-gray-200 rounded-full'
+              >
                 <FontAwesome6 name='bag-shopping' size={24} color="#9E9E9E" />
               </TouchableOpacity>
             </View>

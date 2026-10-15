@@ -26,9 +26,9 @@ const TabsLayout = () => {
           <FontAwesome6 name='magnifying-glass' size={size} color={color} />
         )
       }} />
-      <Tabs.Screen name="store" options={{
-        title: 'Store', tabBarIcon: ({ size, color }) => (
-          <FontAwesome6 name='bag-shopping' size={size} color={color} />
+      <Tabs.Screen name="cart" options={{
+        title: 'Cart', tabBarIcon: ({ size, color }) => (
+          <FontAwesome6 name='cart-shopping' size={size} color={color} />
         )
       }} />
       <Tabs.Screen name="user" options={{
