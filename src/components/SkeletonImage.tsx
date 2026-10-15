@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { ImageSourcePropType, View } from "react-native";
-import { Image, type ImageProps } from "expo-image";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
 import Skeleton from "./Skeleton";
 
 type SkeletonImageProps = {
   source: ImageSourcePropType;
   className?: string;
-  contentFit?: ImageProps["contentFit"];
+  contentFit?: "cover" | "contain" | "stretch" | "center";
   onLoad?: () => void;
 };
 
@@ -25,14 +24,14 @@ const SkeletonImage = ({
 
   return (
     <View className={className}>
-      {isLoading && <Skeleton className="absolute inset-0" />}
+      {isLoading && <Skeleton style={StyleSheet.absoluteFill} />}
       <Image
-        source={source as ImageProps["source"]}
+        source={source}
         className="w-full h-full"
-        contentFit={contentFit}
+        resizeMode={contentFit}
         onLoad={handleLoaded}
+        onLoadEnd={handleLoaded}
         onError={handleLoaded}
-        transition={300}
       />
     </View>
   );

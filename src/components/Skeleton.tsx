@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { StyleProp, ViewStyle } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -9,9 +10,10 @@ import Animated, {
 
 type SkeletonProps = {
   className?: string;
+  style?: StyleProp<ViewStyle>;
 };
 
-const Skeleton = ({ className }: SkeletonProps) => {
+const Skeleton = ({ className, style }: SkeletonProps) => {
   const opacity = useSharedValue(0.4);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ const Skeleton = ({ className }: SkeletonProps) => {
 
   return (
     <Animated.View
-      style={animatedStyle}
+      style={[animatedStyle, style]}
       className={`bg-[#E5E5E5] ${className ?? ""}`}
     />
   );
