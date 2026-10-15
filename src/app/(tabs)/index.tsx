@@ -1,4 +1,4 @@
-import { FlatList, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ScrollView, Text, TextInput, View } from "react-native";
 import { styled } from "nativewind"
 import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 import { home_avatar } from "@/assets/images";
@@ -6,6 +6,7 @@ import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
 import ProductCard from "@/components/ProductCard";
+import IconButton from "@/components/IconButton";
 import { PRODUCTS } from "../../../constants/data";
 
 const SafeAreaView = styled(RNSafeAreaView)
@@ -30,9 +31,9 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <TouchableOpacity className="bg-[#F8F7F7] p-5 items-center rounded-full justify-center">
-            <FontAwesome name="bell" size={24} color="#7C7979" />
-          </TouchableOpacity>
+          <IconButton
+            icon={<FontAwesome name="bell" size={24} color="#7C7979" />}
+          />
         </View>
 
 
@@ -57,11 +58,13 @@ export default function HomeScreen() {
               product_name={item.product_name}
               product_currency={item.product_currency}
               product_image={item.product_image}
+              product_id={item.id}
             />
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <View className="w-4" />}
+          className="mb-8"
         />
 
         <SectionHeader name="Most Popular" />
@@ -70,6 +73,7 @@ export default function HomeScreen() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <ProductCard
+              product_id={item.id}
               product_name={item.product_name}
               product_currency={item.product_currency}
               product_image={item.product_image}
@@ -78,6 +82,7 @@ export default function HomeScreen() {
           horizontal
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <View className="w-4" />}
+          className="mb-8"
         />
       </ScrollView>
     </SafeAreaView>
