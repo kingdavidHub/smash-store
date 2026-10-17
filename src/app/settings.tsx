@@ -1,9 +1,9 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { home_avatar } from '@/assets/images'
+import { FontAwesome, FontAwesome6 } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import { styled } from 'nativewind'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context'
-import { FontAwesome, FontAwesome6 } from '@expo/vector-icons'
-import { home_avatar } from '@/assets/images'
 
 const SafeAreaView = styled(RNSafeAreaView)
 
